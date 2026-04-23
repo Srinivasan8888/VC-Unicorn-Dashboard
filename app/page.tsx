@@ -1,9 +1,7 @@
 import data from "@/data/unicorns.json";
 import type { UnicornDataset } from "./types";
 import { Masthead } from "./components/Masthead";
-import { CardStack } from "./components/CardStack";
-import { MetricsStrip } from "./components/MetricsStrip";
-import { RecentClass } from "./components/RecentClass";
+import { FrontPage } from "./components/FrontPage";
 import { Explorer } from "./components/Explorer";
 import { TrendsBlock } from "./components/TrendsBlock";
 import { Ledger } from "./components/Ledger";
@@ -15,9 +13,7 @@ export default function Page() {
   return (
     <main className="max-w-page mx-auto px-4 md:px-6 overflow-x-hidden">
       <Masthead asOf={ds.meta.as_of} lastUpdated={ds.meta.last_updated} />
-      <CardStack unicorns={ds.unicorns} />
-      <MetricsStrip unicorns={ds.unicorns} meta={ds.meta} />
-      <RecentClass unicorns={ds.unicorns} />
+      <FrontPage unicorns={ds.unicorns} meta={ds.meta} />
       <Explorer unicorns={ds.unicorns} />
       <TrendsBlock unicorns={ds.unicorns} />
       <Ledger unicorns={ds.unicorns} />
@@ -38,7 +34,7 @@ function About({ meta }: { meta: UnicornDataset["meta"] }) {
         </div>
         <div className="font-body text-meta text-ink-light max-w-[60ch] leading-[1.65]">
           <p>
-            <em>Indian Unicorns</em> is a broadsheet index of India&apos;s $1B+
+            <em>Unicorns</em> is a broadsheet index of India&apos;s $1B+
             private companies — built by the team behind{" "}
             <a href="https://hottakes.vc/" className="text-ink hover:text-red">
               Hot Takes on Indian VCs
@@ -61,7 +57,6 @@ function About({ meta }: { meta: UnicornDataset["meta"] }) {
           <p className="mt-3 font-mono text-tag uppercase tracking-label text-ink-muted">
             Methodology ·{" "}
             <a href="#headlines" className="hover:text-red">Headlines</a> ·{" "}
-            <a href="#class" className="hover:text-red">Latest Class</a> ·{" "}
             <a href="#landscape" className="hover:text-red">Landscape</a> ·{" "}
             <a href="#trends" className="hover:text-red">Trends</a> ·{" "}
             <a href="#ledger" className="hover:text-red">Ledger</a> ·{" "}

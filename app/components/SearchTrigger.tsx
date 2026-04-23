@@ -29,11 +29,26 @@ export function SearchTrigger() {
   return (
     <button
       onClick={focusSearch}
-      className="flex items-center gap-[10px] font-mono text-btn uppercase tracking-meta text-ink-muted border border-rule px-3 py-[6px] bg-paper hover:border-ink hover:text-ink transition-colors"
+      className="flex items-center gap-[10px] border border-rule bg-paper hover:border-ink transition-colors px-3 py-[9px] w-full md:w-auto md:min-w-[360px] lg:min-w-[440px] ml-auto"
       aria-label="Search unicorns"
     >
-      <span>Search</span>
-      <kbd className="px-[5px] py-[1px] border border-rule text-tiny font-mono tracking-normal">
+      <svg
+        className="w-[14px] h-[14px] text-ink-muted flex-shrink-0"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
+      <span className="font-body text-[0.9rem] text-ink-muted flex-1 text-left truncate">
+        Search unicorns · Sectors · Backers · Jump to Ledger
+      </span>
+      <kbd className="px-[6px] py-[2px] border border-rule text-tiny font-mono tracking-normal text-ink-muted flex-shrink-0">
         ⌘K
       </kbd>
     </button>
