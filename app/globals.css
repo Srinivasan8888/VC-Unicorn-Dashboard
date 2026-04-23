@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+  body {
+    background: theme(colors.paper);
+    color: theme(colors.ink);
+    font-family: theme(fontFamily.body);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.012) 2px,
+      rgba(0,0,0,0.012) 4px
+    );
+    z-index: -1;
+  }
+  h1, h2, h3, h4 { font-family: theme(fontFamily.serif); line-height: 1.15; font-weight: 700; }
+  ::selection { background: theme(colors.red.DEFAULT); color: theme(colors.paper); }
+}
+
+@layer components {
+  .tag-pill {
+    @apply inline-block font-mono text-tiny uppercase tracking-label px-[7px] py-[2px] border border-rule text-ink-muted bg-paper whitespace-nowrap;
+  }
+  .th-cell {
+    @apply sticky top-0 bg-paper border-t-2 border-t-ink border-b border-b-ink px-2 py-[10px] text-left font-mono text-tag font-medium uppercase tracking-meta text-ink whitespace-nowrap cursor-pointer select-none hover:text-red;
+  }
+  .td-cell {
+    @apply px-2 py-[10px] border-b border-b-rule align-top;
+  }
+  .input-field {
+    @apply w-full font-body text-body text-ink bg-paper border border-rule px-[10px] py-2 rounded-none transition-colors focus:outline-none focus:border-ink placeholder:italic placeholder:text-ink-muted;
+  }
+  .th-meta {
+    @apply px-2 py-[10px] font-mono text-tag font-medium uppercase tracking-meta text-ink;
+  }
+  .btn-ghost {
+    @apply font-mono text-btn uppercase tracking-meta text-ink-muted border border-rule bg-paper px-3 py-[6px] rounded-none transition-colors hover:border-ink hover:text-ink cursor-pointer;
+  }
+}
