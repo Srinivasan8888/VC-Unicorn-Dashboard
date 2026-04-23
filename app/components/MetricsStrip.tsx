@@ -31,7 +31,7 @@ export function MetricsStrip({
   ];
 
   return (
-    <section className="grid grid-cols-6 max-lg:grid-cols-3 max-md:grid-cols-2 gap-px bg-rule border-b border-b-ink mt-4">
+    <section className="grid grid-cols-6 max-lg:grid-cols-3 max-md:grid-cols-2 gap-px bg-rule border-t-2 border-t-ink">
       {items.map((it) => (
         <div key={it.label} className="bg-paper py-[18px] px-3 text-center">
           <div className="font-mono text-tag tracking-label uppercase text-ink-muted mb-[6px] leading-tight">

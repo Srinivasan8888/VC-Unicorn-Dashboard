@@ -103,11 +103,11 @@ export function Ledger({ unicorns }: { unicorns: Unicorn[] }) {
 
   return (
     <section id="ledger">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-t-ink border-b border-b-rule pt-3 pb-2 mt-8">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-t-2 border-t-ink border-b border-b-rule pt-3 pb-2 mt-14 md:mt-16">
         <h2 className="font-serif text-[1.05rem] md:text-section uppercase tracking-mast font-bold">
           The Ledger
         </h2>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <span className="font-mono text-tag tracking-label uppercase text-ink-muted">
             Ranked by Valuation · {rows.length} of {unicorns.length}
           </span>
