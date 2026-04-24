@@ -12,7 +12,7 @@ export default function Page() {
   const ds = data as UnicornDataset;
   return (
     <main className="max-w-page mx-auto px-4 md:px-6 overflow-x-hidden">
-      <Masthead asOf={ds.meta.as_of} lastUpdated={ds.meta.last_updated} />
+      <Masthead />
       <FrontPage unicorns={ds.unicorns} meta={ds.meta} />
       <Explorer unicorns={ds.unicorns} />
       <TrendsBlock unicorns={ds.unicorns} />
