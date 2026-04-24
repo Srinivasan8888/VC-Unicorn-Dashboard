@@ -1,5 +1,6 @@
 import type { Unicorn, UnicornDataset } from "../types";
 import { fmtMoney } from "../lib/fmt";
+import { GlobalContext } from "./GlobalContext";
 
 export function FrontPage({
   unicorns,
@@ -46,6 +47,7 @@ export function FrontPage({
         <HeadlinesColumn rows={top10} />
         <aside className="grid gap-8 lg:gap-10">
           <ByTheNumbers stats={stats} asOf={meta.as_of} />
+          <GlobalContext />
           <LatestClass rows={latest} />
         </aside>
       </div>

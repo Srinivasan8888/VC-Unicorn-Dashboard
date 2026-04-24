@@ -4,6 +4,7 @@ import { Masthead } from "./components/Masthead";
 import { FrontPage } from "./components/FrontPage";
 import { Explorer } from "./components/Explorer";
 import { TrendsBlock } from "./components/TrendsBlock";
+import { SerialFounders } from "./components/SerialFounders";
 import { Ledger } from "./components/Ledger";
 import { FAQ } from "./components/FAQ";
 import { ReachOut } from "./components/ReachOut";
@@ -16,6 +17,7 @@ export default function Page() {
       <FrontPage unicorns={ds.unicorns} meta={ds.meta} />
       <Explorer unicorns={ds.unicorns} />
       <TrendsBlock unicorns={ds.unicorns} />
+      <SerialFounders unicorns={ds.unicorns} />
       <Ledger unicorns={ds.unicorns} />
       <FAQ />
       <ReachOut />
