@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- Design tokens as CSS custom properties (so raw CSS can reference them) ---------- */
+:root {
+  --paper: #f5f0e8;
+  --paper-dark: #ede7db;
+  --ink: #1a1410;
+  --ink-light: #4a4035;
+  --ink-muted: #635a4a;
+  --red: #c0392b;
+  --red-dark: #962d22;
+  --rule: #c8bfb0;
+  --rule-dark: #9a9080;
+  --serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --body:  var(--font-source-serif), Georgia, serif;
+  --mono:  var(--font-jetbrains), "Courier New", monospace;
+}
+
 @layer base {
   html { font-size: 17px; -webkit-font-smoothing: antialiased; }
   body {
@@ -57,4 +73,136 @@
   .btn-ghost {
     @apply font-mono text-btn uppercase tracking-meta text-ink-muted border border-rule bg-paper px-3 py-[6px] rounded-none transition-colors hover:border-ink hover:text-ink cursor-pointer;
   }
+}
+
+/* ---------- Top nav (ported verbatim from hottakes.vc) ---------- */
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 10px 0 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.top-nav a {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.top-nav a:hover { color: var(--red); }
+
+.top-nav-brand {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 2.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-right: auto;
+  text-decoration: none;
+  transition: color 0.15s;
+  text-shadow: 0.5px 0.5px 0 var(--ink);
+  line-height: 1;
+}
+.top-nav-brand:hover {
+  color: var(--red);
+  text-shadow: 0.5px 0.5px 0 var(--red);
+}
+
+.nav-search {
+  flex: 1 1;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font: inherit;
+  text-align: left;
+}
+.nav-search:hover {
+  border-color: var(--ink);
+  background: var(--paper-dark);
+}
+.nav-search-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+.nav-search:hover .nav-search-icon { color: var(--ink); }
+.nav-search-text {
+  font-family: var(--mono);
+  color: var(--ink-muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.03em;
+  flex: 1 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-search-kbd {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  border: 1px solid var(--rule);
+  background: var(--paper-dark);
+  padding: 2px 6px;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+  transition: all 0.15s;
+}
+.nav-search:hover .nav-search-kbd {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.nav-search-mobile-label { display: none; }
+
+@media (max-width: 768px) {
+  .top-nav {
+    gap: 0;
+    padding: 8px 0 6px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-nav-brand {
+    font-size: 3.2rem;
+    letter-spacing: 0.04em;
+    font-weight: 900;
+    flex: 1 1;
+    text-shadow: none;
+    line-height: 1;
+  }
+  .nav-search {
+    flex: none;
+    padding: 10px;
+    gap: 0;
+    overflow: visible;
+    border: none;
+    background: none;
+    max-width: none;
+  }
+  .nav-search:hover { border-color: transparent; background: none; }
+  .nav-search-text { display: none; }
+  .nav-search-icon {
+    width: 26px;
+    height: 26px;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .nav-search-kbd, .nav-search-mobile-label { display: none; }
+}
+
+@media (max-width: 480px) {
+  .nav-search-text { display: none; }
+  .nav-search { padding: 4px 8px; gap: 4px; }
+  .top-nav-brand { font-size: 2.8rem; letter-spacing: 0.04em; }
 }
